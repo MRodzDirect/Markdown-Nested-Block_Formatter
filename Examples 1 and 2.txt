@@ -1,0 +1,49 @@
+* Example 1: 
+
+~~~~shell
+echo "tildes"
+
+````md
+this is markdown
+
+~~~python
+print("again tildes")
+```markdown
+```hello```
+~~~r
+cat("okay")
+```md
+again
+```
+~~~
+```
+~~~
+````
+~~~~
+
+* When we render the previous example and extract each code block as independent-content, the extraction will fail and render incorrectly at the line 16 (just when the third tilde block ends, which was supposed to terminate the r block, but instead terminated the python block). Also another error is after the final nested md block i.e below the word "again" where it is closing the `markdown` block instead of the `md` one. Hence the same adjustment has to be made to our first md block in order to render it adequately.
+
+* Example 2  fixed (detail it at depth and all of the changes made in respect to the first example):
+
+~~~~~shell
+echo "tildes"
+
+`````md
+this is markdown
+
+~~~~python
+print("again tildes")
+````markdown
+```hello```
+~~~r
+cat("okay")
+```md
+again
+```
+~~~
+````
+~~~~
+`````
+~~~~~
+
+
